@@ -14,10 +14,19 @@
 
 */
 
+//Intervals to select a random quote
+var randomQ = randomInt(0,9);
+
+//Function to determine the random integer between 0 and 9
 function randomInt(lowest, size){
-    
+   var random = Math.floor(Math.random()*size+lowest);
+   return random;
 }
 
+//Variable that references the first element in the HTML
+var quoteElem = document.getElementsByTagName("quote")[0];
+
+//Function that lists the different quotes that can be chosen
 function getQuote(n) {
    var quotes = [
    "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
@@ -34,3 +43,6 @@ function getQuote(n) {
    
    return quotes[n];
 }
+
+//Generates a random quote and displays it
+quoteElem.innerHTML = getQuote(randomQ);
